@@ -6,17 +6,17 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @Entity
-@Table(name = "ACCOUNT_TRANSACTION",schema = "ACCOUNTSYSTEM")
+@Table(name = "ACCOUNT_TRANSACTION", schema = "ACCOUNTSYSTEM")
 public class AccountTransaction implements Serializable {
 
     private static final long serialVersionUID = 1199041377884282633L;
     private Long accountTxId;
-    private AccountType accountTypeId; // Foreign Key
+    private Long accountTypeId; // Foreign Key
     private Long memberId;
-    private Long amount;
+    private Integer amount;
     private LocalDate txDate;
 
-    public AccountTransaction(Long accountTxId, AccountType accountTypeId, Long memberId, Long amount, LocalDate txDate) {
+    public AccountTransaction(Long accountTxId, Long accountTypeId, Long memberId, Integer amount, LocalDate txDate) {
         this.accountTxId = accountTxId;
         this.accountTypeId = accountTypeId;
         this.memberId = memberId;
@@ -24,7 +24,7 @@ public class AccountTransaction implements Serializable {
         this.txDate = txDate;
     }
 
-    public AccountTransaction(AccountType accountTypeId, Long memberId, Long amount, LocalDate txDate) {
+    public AccountTransaction(Long accountTypeId, Long memberId, Integer amount, LocalDate txDate) {
         this.accountTxId = accountTxId;
         this.accountTypeId = accountTypeId;
         this.memberId = memberId;
@@ -48,13 +48,13 @@ public class AccountTransaction implements Serializable {
     }
 
     // Lazy fetch: fetch data when needed
-    @ManyToOne(fetch = FetchType.LAZY) // One account can have many transactions
+    //@ManyToOne(fetch = FetchType.LAZY) // One account can have many transactions
     @JoinColumn(name="Account_Type_ID")
-    public AccountType getAccountTypeId() {
+    public Long getAccountTypeId() {
         return accountTypeId;
     }
 
-    public void setAccountTypeId(AccountType accountTypeId) {
+    public void setAccountTypeId(Long accountTypeId) {
         this.accountTypeId = accountTypeId;
     }
 
@@ -67,12 +67,12 @@ public class AccountTransaction implements Serializable {
         return memberId;
     }
 
-    public void setAmount(Long amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 
     @Column(name="Amount")
-    public Long getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 

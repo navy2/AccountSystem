@@ -13,6 +13,7 @@ import java.util.Objects;
 @ApiModel(value = "Member", description = "This DTO represents the Member")
 public class MemberDto implements Serializable {
 
+    private static final long serialVersionUID = 1477107681947212016L;
     private Long memberId;
     private String name;
     private Long accountTypeId;
@@ -76,7 +77,7 @@ public class MemberDto implements Serializable {
             name = "AccountTypeId",
             notes = "Account Type of the member",
             dataType = "java.lang.String",
-            example = "a",
+            example = "1",
             required = true
     )
     public Long getAccountTypeId() {
@@ -93,7 +94,7 @@ public class MemberDto implements Serializable {
             name = "balance",
             notes = "Contains the balance that a user holds",
             dataType = "java.lang.Integer",
-            example = "42069",
+            example = "1000",
             required = true
     )
     public Integer getBalance() {

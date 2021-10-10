@@ -6,4 +6,5 @@ import java.util.List;
 
 public interface FetchMemberFlow {
     List<MemberDto> getAllMembers();
+    MemberDto getMemberByIdandTypeId(Long memberId, Long accountTypeId);
 }

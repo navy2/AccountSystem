@@ -1,9 +1,12 @@
 package za.ac.nwu.ac.translator.impl;
 
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import za.ac.nwu.ac.domain.dto.AccountTransactionDto;
+import za.ac.nwu.ac.domain.dto.MemberDto;
 import za.ac.nwu.ac.domain.persistence.AccountTransaction;
+import za.ac.nwu.ac.domain.persistence.Member;
 import za.ac.nwu.ac.repo.persistence.AccountTransactionRepository;
 import za.ac.nwu.ac.translator.AccountTransactionTranslator;
 
@@ -41,6 +44,16 @@ public class AccountTransactionTranslatorImpl implements AccountTransactionTrans
             return new AccountTransactionDto(accountTransaction);
         }catch (Exception e){
             throw new RuntimeException("Unable to save to the DB", e);
+        }
+    }
+
+    @Override
+    public AccountTransactionDto getAccountTransactionById(Long transactionId) {
+        try {
+            AccountTransaction accountTransaction = accountTransactionRepository.getTx(transactionId);
+            return new AccountTransactionDto(accountTransaction);
+        } catch (Exception e) {
+            throw new RuntimeException("Unable to read from the DB", e);
         }
     }
 }

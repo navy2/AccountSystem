@@ -25,4 +25,9 @@ public class FetchMemberFlowImpl implements FetchMemberFlow {
         return membersTranslator.getAllMembers();
     }
 
+    @Override
+    public MemberDto getMemberByIdandTypeId(Long memberId, Long accountTypeId) {
+        return membersTranslator.getMemberByIdandTypeId(memberId, accountTypeId);
+    }
+
 }

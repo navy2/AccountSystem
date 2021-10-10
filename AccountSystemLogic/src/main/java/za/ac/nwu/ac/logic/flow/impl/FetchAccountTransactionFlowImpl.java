@@ -25,4 +25,9 @@ public class FetchAccountTransactionFlowImpl implements FetchAccountTransactionF
         return accountTransactionTranslator.getAllAccountTransactions();
     }
 
+    @Override
+    public AccountTransactionDto getAccountTransactionById(Long transactionId) {
+        return accountTransactionTranslator.getAccountTransactionById(transactionId);
+    }
+
 }

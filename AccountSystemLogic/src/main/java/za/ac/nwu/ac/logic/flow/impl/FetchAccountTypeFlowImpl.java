@@ -24,6 +24,15 @@ public class FetchAccountTypeFlowImpl implements FetchAccountTypeFlow {
     }
 
     @Override
+    public AccountTypeDto getAccountTypeByMnemonic(String mnemonic){
+        try{
+            return accountTypeTranslator.getAccountTypeByMnemonic(mnemonic);
+        }catch (Exception e){
+            throw new RuntimeException("Unable to read from the DB", e);
+        }
+    }
+
+    @Override
     public List<AccountTypeDto> getAllAccountTypes() {
         return accountTypeTranslator.getAllAccountTypes();
     }

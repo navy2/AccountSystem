@@ -8,4 +8,6 @@ public interface AccountTransactionTranslator {
     List<AccountTransactionDto> getAllAccountTransactions();
 
     AccountTransactionDto create(AccountTransactionDto accountTransaction);
+
+    AccountTransactionDto getAccountTransactionById(Long transactionId);
 }

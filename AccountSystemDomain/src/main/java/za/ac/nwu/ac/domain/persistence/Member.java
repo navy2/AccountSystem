@@ -8,6 +8,7 @@ import java.util.Objects;
 @Entity
 @Table(name = "MEMBER", schema = "ACCOUNTSYSTEM")
 public class Member implements Serializable {
+    private static final long serialVersionUID = 624652389550473387L;
     private Long memberId;
     private String name;
     private Long accountTypeId;
@@ -25,7 +26,7 @@ public class Member implements Serializable {
         this.creationDate = creationDate;
     }
 
-    public Member(Integer balance, Long memberId, Long accountTypeId) {
+    public Member(Long memberId, Long accountTypeId, Integer balance) {
         this.memberId = memberId;
         this.accountTypeId = accountTypeId;
         this.balance = balance;
