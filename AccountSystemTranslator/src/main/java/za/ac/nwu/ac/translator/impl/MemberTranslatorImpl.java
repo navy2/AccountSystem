@@ -69,7 +69,7 @@ public class MemberTranslatorImpl implements MemberTranslator {
             Integer newBalance = currentBalance + amount;
             LocalDate date = LocalDate.now();
 
-            AccountTransactionDto acc = new AccountTransactionDto(memberId, amount, date);
+            AccountTransactionDto acc = new AccountTransactionDto(memberId, accountTypeId, amount, date);
             Member mem = new Member(memberId, accountTypeId, newBalance);
 
             memberRepository.updateMemberBalance(memberId, accountTypeId, newBalance);

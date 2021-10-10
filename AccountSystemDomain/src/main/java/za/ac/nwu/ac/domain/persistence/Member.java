@@ -1,6 +1,7 @@
 package za.ac.nwu.ac.domain.persistence;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Objects;
@@ -62,6 +63,7 @@ public class Member implements Serializable {
         this.accountTypeId = accountTypeId;
     }
 
+    @Min(0)
     @Column(name = "Balance")
     public Integer getBalance() {
         return balance;
