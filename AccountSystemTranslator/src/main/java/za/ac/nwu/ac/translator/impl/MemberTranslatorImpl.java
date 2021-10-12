@@ -77,7 +77,7 @@ public class MemberTranslatorImpl implements MemberTranslator {
             return new MemberDto(mem);
         }
         catch (Exception e) {
-            throw new RuntimeException("Unable to save to the DB", e);
+            throw new RuntimeException("Insufficient Funds", e);
         }
     }
 

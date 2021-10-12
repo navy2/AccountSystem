@@ -78,7 +78,7 @@ public class MemberController {
     public ResponseEntity<GeneralResponse<MemberDto>> updateMember(
             @ApiParam(value="Amount that will be added or subtracted from balance",
                     name="amount",
-                    example = "-100 or 100",
+                    example = "100",
                     required = true)
             @PathVariable("amount") final Integer amount,
             @ApiParam(value = "The member id that specifies member.",
